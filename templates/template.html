@@ -2,9 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="static/style.css">
     <title>{{ page }}</title>
 </head>
 <body>
-    Pagina {{ page }}
+
+    <header>
+        <!-- @TO DO: img: logo -->
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('resume') }}">Resume</a></li>
+                <li><a href="{{ url_for('portofolio') }}">Portofolio</a></li>
+                <li><a href="{{ url_for('contact') }}">Contacts</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
 </body>
 </html>

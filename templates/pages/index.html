@@ -1,5 +1,7 @@
 {% extends 'template.html' %}
 
 {% block content %}
-{{ page }}
+<div class="container">
+   <img src="{{ url_for('static', filename='img/profile.jpg')}}" class="rounded-circle" height="200px">
+</div>
 {% endblock %}

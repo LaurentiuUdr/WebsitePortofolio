@@ -1,6 +1,9 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template
+import datetime
 
 app = Flask(__name__)
+
+year = datetime.datetime.now().strftime("%Y")
 
 PAGES_PATH = 'pages'
 pages = [
@@ -13,7 +16,7 @@ pages = [
 for page in pages:
     def make_view(template, title):
         def view():
-            return render_template(template, page=title)
+            return render_template(template, page=title, year=year)
         return view
 
     app.add_url_rule(
@@ -22,6 +25,7 @@ for page in pages:
         view_func=make_view(page["template"], page["title"]),
         methods=["GET"]
     )
+
 
 if __name__ == "__main_":
     app.run()
